@@ -62,18 +62,18 @@ describe('Login Page Test Suite', () => {
     cy.get("[type='submit']").click();
     cy.url().should('include', '/dashboard');
 
-    // Click on profile dropdown and logout
-//     cy.get('.oxd-userdropdown-tab').click();
-//     cy.contains('Logout').click();
+    //Click on profile dropdown and logout
+    cy.get('.oxd-userdropdown-tab').click();
+    cy.contains('Logout').click();
 
-//     cy.url().should('include', '/auth/login');
-//   });
+    cy.url().should('include', '/auth/login');
+  });
 
-//   it('should prevent login with XSS input', () => {
-//     cy.get("[placeholder='Username']").type('<script>alert(1)</script>', {delay : 100});
-//     cy.get("[placeholder='Password']").type('admin123', {delay : 100});
-//     cy.get("[type='submit']").click();
-//     cy.get('.oxd-alert-content-text')
-//       .should('contain', 'Invalid credentials');
+  it('should prevent login with XSS input', () => {
+    cy.get("[placeholder='Username']").type('<script>alert(1)</script>', {delay : 100});
+    cy.get("[placeholder='Password']").type('admin123', {delay : 100});
+    cy.get("[type='submit']").click();
+    cy.get('.oxd-alert-content-text')
+      .should('contain', 'Invalid credentials');
   });
 });
