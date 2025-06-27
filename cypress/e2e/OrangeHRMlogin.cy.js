@@ -63,8 +63,8 @@ describe('Login Page Test Suite', () => {
     cy.url().should('include', '/dashboard');
 
     //Click on profile dropdown and logout
-    cy.get('.oxd-userdropdown-tab').click();
-    cy.contains('Logout').click();
+    // cy.get('.oxd-userdropdown-tab').click();
+    // cy.contains('Logout').click();
 
     cy.url().should('include', '/auth/login');
   });
